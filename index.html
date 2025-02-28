@@ -1,70 +1,77 @@
-><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scooby-Doo Party</title>
+    <title>The Scooby-Doo Gang</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1A1A2E, #16213E);
-            color: white;
+            font-family: 'Luckiest Guy', cursive;
+            background: linear-gradient(135deg, #1E90FF, #32CD32);
+            color: #FFD700;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #E74C3C;
+            background-color: #FF4500;
             padding: 20px;
-            font-size: 42px;
+            font-size: 48px;
             font-weight: bold;
             text-shadow: 3px 3px black;
             border-bottom: 5px solid #C0392B;
         }
         .container {
             margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 70vh;
-        }
-        .button {
-            display: block;
-            width: 50%;
-            background: linear-gradient(135deg, #F39C12, #E67E22);
-            color: white;
-            padding: 15px;
-            margin: 15px auto;
-            border: none;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
             box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
         }
-        .button:hover {
-            background: linear-gradient(135deg, #E67E22, #D35400);
+        p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: #FF4500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            width: 250px;
+        }
+        .btn:hover {
             transform: scale(1.1);
-            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.6);
+            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
         .footer {
             margin-top: 30px;
-            font-size: 18px;
-            color: #FFD700;
+            font-size: 16px;
+            color: #FFF;
         }
     </style>
 </head>
 <body>
-    <header>Welcome to the Official Scooby-Doo Party Website!</header>
+    <header>Welcome to the Scooby-Doo Gang Official Site!</header>
     <div class="container">
-        <a href="members.html" class="button">Meet the Members</a>
-        <a href="goals.html" class="button">Our Goals</a>
-        <a href="giveaway.html" class="button">Giveaway</a>
-        <a href="feedback.html" class="button">Opinions & Feedback</a>
+        <p>Join us as we unmask the future of this server! Our party is all about **teamwork, fun, and solving mysteries**—just like Scooby and the gang. 🕵️‍♂️🚐</p>
+        <p>Click below to explore:</p>
+        <a href="members.html" class="btn">Meet the Members</a>
+        <a href="goals.html" class="btn">Our Goals</a>
+        <a href="giveaway.html" class="btn">Nitro Giveaway</a>
+        <a href="feedback.html" class="btn">Give Your Opinion</a>
     </div>
-    <div class="footer">Many updates coming soon! Stay tuned for more surprises. 🎉</div>
+    <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
 </body>
-</html
+</html>
