@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giveaway</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1A1A2E, #0F3460);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #E74C3C;
+            padding: 20px;
+            font-size: 42px;
+            font-weight: bold;
+            text-shadow: 3px 3px black;
+            border-bottom: 5px solid #C0392B;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .highlight {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-top: 20px;
+        }
+        .entry-form {
+            margin-top: 30px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+        button {
+            background-color: #E74C3C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+        }
+        .back-button {
+            margin-top: 30px;
+        }
+        .back-button a {
+            text-decoration: none;
+            background-color: #E74C3C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .back-button a:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+        }
+    </style>
+    <script>
+        function submitEntry() {
+            const name = document.getElementById("name").value;
+            const discordUser = document.getElementById("discordUser").value;
+            if (!name || !discordUser) {
+                alert("Please fill in all fields!");
+                return;
+            }
+            
+            fetch('https://discord.com/api/webhooks/1345149170318577664/06zdnISGV17aFsh680K35662XihaPut22PB3CMUsPxup_BbEpN6SrqVEKm0auzfwhk8S', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: `New Giveaway Entry!\nName: ${name}\nDiscord: ${discordUser}` })
+            });
+            
+            setTimeout(() => {
+                let response = confirm("Now that you may win a Nitro for free, are you voting for us?");
+                if (!response) {
+                    alert("C'mon, you know we deserve it!");
+                } else {
+                    alert("Thank you for your vote!");
+                }
+            }, 500);
+        }
+    </script>
+</head>
+<body>
+    <header>Nitro Giveaway!</header>
+    <div class="container">
+        <p>We believe in giving back to our amazing community! What better way to show our appreciation than with a <strong>Nitro Giveaway</strong>? 🎉</p>
+        <p>By voting for us, you're not just supporting a team dedicated to making the server better, but you're also entering a chance to win a Nitro subscription. It’s our way of saying THANK YOU! 💙</p>
+        <p class="highlight">You can't tell me we don’t deserve a vote! 😉</p>
+        <p>Simply enter your details below, and let’s make this community even more amazing together.</p>
+        <div class="entry-form">
+            <input type="text" id="name" placeholder="Enter your name">
+            <input type="text" id="discordUser" placeholder="Enter your Discord username">
+            <button onclick="submitEntry()">Enter Giveaway</button>
+        </div>
+    </div>
+    <div class="back-button">
+        <a href="main.html">← Back to Main Page</a>
+    </div>
+</body>
+</html>

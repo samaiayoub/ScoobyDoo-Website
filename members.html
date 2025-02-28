@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Members</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1A1A2E, #16213E);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #E74C3C;
+            padding: 20px;
+            font-size: 42px;
+            font-weight: bold;
+            text-shadow: 3px 3px black;
+            border-bottom: 5px solid #C0392B;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .member {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 250px;
+        }
+        .member:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.6);
+        }
+        .discord-user {
+            display: none;
+            font-size: 18px;
+            color: #FFD700;
+            margin-top: 10px;
+        }
+        .back-button {
+            margin-top: 30px;
+        }
+        .back-button a {
+            text-decoration: none;
+            background-color: #E74C3C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .back-button a:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+        }
+    </style>
+    <script>
+        function showDiscord(id) {
+            var element = document.getElementById(id);
+            element.style.display = element.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+    <header>Meet the Members</header>
+    <div class="container">
+        <div class="member" onclick="showDiscord('ethan')">Velma (Ethan)
+            <p>The brilliant strategist the greatest french person ever, equipped with facts and logic to break down the toughest challenges.</p>
+            <div id="ethan" class="discord-user">@unbotheredethan.</div>
+        </div>
+        <div class="member" onclick="showDiscord('mack')">Shaggy (Mack)
+            <p>The voice of the everyday person, never afraid to speak out for the underdog.</p>
+            <div id="mack" class="discord-user">@.mack</div>
+        </div>
+        <div class="member" onclick="showDiscord('earthtrees')">Fred (Earthtrees)
+            <p>The visionary leader. Brave, determined, and always ready with a plan.</p>
+            <div id="earthtrees" class="discord-user">@earthtrees</div>
+        </div>
+        <div class="member" onclick="showDiscord('cheese')">Daphne (Cheese)
+            <p>A compassionate problem-solver who sees the world from every angle.</p>
+            <div id="cheese" class="discord-user">@cheesetower5</div>
+        </div>
+    </div>
+    <div class="back-button">
+        <a href="main.html">← Back to Main Page</a>
+    </div>
+</body>
+</html>
