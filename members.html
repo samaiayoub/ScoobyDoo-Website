@@ -5,105 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet the Scooby-Doo Team!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Fredoka+One&display=swap');
         
+        /* General Page Styling */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #00A5CF;
-            background: url('https://i.imgur.com/your-scoobydoo-flowers-bg.png') no-repeat center center/cover;
-            color: #FFB800;
+            background-color: #FF9900; /* Scooby-Doo themed orange */
+            background: url('https://i.imgur.com/your-scoobydoo-bg.png') no-repeat center center/cover;
+            color: #4B0082;
             text-align: center;
             margin: 0;
             padding: 0;
         }
+        
+        /* Header Styling */
         header {
             font-family: 'Luckiest Guy', cursive;
-            font-size: 55px;
-            background-color: #5D3FD3;
-            color: #FFB800;
-            padding: 20px;
-            text-shadow: 4px 4px black;
-            border-bottom: 5px solid #FF4E00;
+            font-size: 60px;
+            background-color: #3A6F3A;
+            color: #FFD700;
+            padding: 25px;
+            text-shadow: 5px 5px black;
+            border-bottom: 5px solid #FFA500;
         }
+        
+        /* Container Styling */
         .container {
             margin-top: 50px;
-            padding: 20px;
-            max-width: 900px;
+            padding: 25px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.5);
         }
+        
+        /* Member Card Styling */
         .member {
-            margin: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: rgba(93, 63, 211, 0.8);
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            background: rgba(75, 0, 130, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.3);
             cursor: pointer;
-            color: #FFD700;
-            font-family: 'Permanent Marker', cursive;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
         .member:hover {
-            transform: scale(1.05);
-            background: #FF4E00;
+            transform: rotate(-2deg) scale(1.1);
+            box-shadow: 0px 12px 30px rgba(255, 165, 0, 0.8);
         }
-        .tag {
-            font-size: 16px;
+        
+        /* Member Titles */
+        h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 45px;
+            color: #4B0082;
+            text-shadow: 3px 3px black;
+        }
+        
+        /* Member Descriptions */
+        p {
+            font-size: 22px;
+            line-height: 1.6;
+            font-family: 'Permanent Marker', cursive;
             color: #FFD700;
-            margin-top: 5px;
+            text-shadow: 2px 2px black;
         }
-        .back-button {
-            margin-top: 20px;
-            display: inline-block;
-            background-color: #5D3FD3;
-            padding: 10px 20px;
+        
+        /* Discord Tags */
+        .tag {
+            display: none;
             font-size: 18px;
+            background: #FFD700;
+            color: #4B0082;
+            padding: 10px;
+            border-radius: 8px;
+            position: absolute;
+            bottom: -40px;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Back Button Styling */
+        .back-button {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #4B0082;
+            padding: 12px 25px;
+            font-size: 20px;
             font-weight: bold;
             color: #FFD700;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0px 5px 15px rgba(76, 175, 80, 0.5);
+            box-shadow: 0px 7px 18px rgba(76, 175, 80, 0.6);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .back-button:hover {
-            transform: scale(1.05);
-            background: #FF4E00;
-            box-shadow: 0px 7px 20px rgba(76, 175, 80, 0.7);
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(76, 175, 80, 0.8);
         }
     </style>
 </head>
 <body>
     <header>Meet the Scooby-Doo Team!</header>
     <div class="container">
-        <div class="member" onclick="showTag('Velma')">
-            <h2>Velma (Ethan)</h2>
-            <p>The brilliant strategist, equipped with facts and logic to break down the toughest challenges.</p>
-            <p class="tag" id="VelmaTag" style="display:none;">@unbotheredethan.</p>
+        <div class="member" onclick="showTag('tag1')">
+            <h2> Velma (Ethan)</h2>
+            <p>The brains of the operation! Always two steps ahead in solving mysteries.</p>
+            <span class="tag" id="tag1">@unbotheredethan.</span>
         </div>
-        <div class="member" onclick="showTag('Shaggy')">
-            <h2>Shaggy (Mack)</h2>
-            <p>The voice of the everyday person, never afraid to speak out for the underdog.</p>
-            <p class="tag" id="ShaggyTag" style="display:none;">@.mack</p>
+        <div class="member" onclick="showTag('tag2')">
+            <h2> Shaggy (Mack)</h2>
+            <p>The chill dude who always keeps things groovy (and loves snacks!).</p>
+            <span class="tag" id="tag2">@.mack</span>
         </div>
-        <div class="member" onclick="showTag('Fred')">
-            <h2>Fred (Earthtrees)</h2>
-            <p>The visionary leader. Brave, determined, and always ready with a plan.</p>
-            <p class="tag" id="FredTag" style="display:none;">@earthtrees</p>
+        <div class="member" onclick="showTag('tag3')">
+            <h2> Fred (Earthrees)</h2>
+            <p>The fearless leader with a plan, and a stylish ascot to match.</p>
+            <span class="tag" id="tag3">@earthtrees</span>
         </div>
-        <div class="member" onclick="showTag('Daphne')">
-            <h2>Daphne (CheeseTower5)</h2>
-            <p>A compassionate problem-solver who sees the world from every angle.</p>
-            <p class="tag" id="DaphneTag" style="display:none;">@cheesetower5</p>
+        <div class="member" onclick="showTag('tag4')">
+            <h2> Daphne (Cheesetower5)</h2>
+            <p>Fashionable, fearless, and always ready for adventure!</p>
+            <span class="tag" id="tag4">@cheesetower5</span>
         </div>
     </div>
     <a href="index.html" class="back-button">Back to Main Page</a>
+
     <script>
-        function showTag(member) {
-            let tag = document.getElementById(member + 'Tag');
-            tag.style.display = tag.style.display === 'none' ? 'block' : 'none';
+        function showTag(tagId) {
+            let tag = document.getElementById(tagId);
+            tag.style.display = 'block';
         }
     </script>
 </body>
