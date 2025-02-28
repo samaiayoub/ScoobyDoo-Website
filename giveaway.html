@@ -3,133 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giveaway</title>
+    <title>Groovy Giveaway - Scooby-Doo Style!</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1A1A2E, #0F3460);
-            color: white;
+            background-color: #3A6F3A;
+            background: url('https://i.imgur.com/your-scoobydoo-bg.png') no-repeat center center/cover;
+            color: #FFD700;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #E74C3C;
-            padding: 20px;
-            font-size: 42px;
-            font-weight: bold;
-            text-shadow: 3px 3px black;
-            border-bottom: 5px solid #C0392B;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 60px;
+            background-color: #4B0082;
+            color: #FFA500;
+            padding: 25px;
+            text-shadow: 5px 5px black;
+            border-bottom: 5px solid #FFD700;
         }
         .container {
             margin-top: 50px;
-            padding: 20px;
-            max-width: 800px;
+            padding: 25px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.5);
+        }
+        h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 40px;
+            color: #FFA500;
+            text-shadow: 3px 3px black;
         }
         p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .highlight {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            line-height: 1.8;
+            font-family: 'Permanent Marker', cursive;
             color: #FFD700;
-            margin-top: 20px;
-        }
-        .entry-form {
-            margin-top: 30px;
+            text-shadow: 2px 2px black;
         }
         input {
-            width: 80%;
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 2px solid #FFA500;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 15px;
             text-align: center;
+            font-family: 'Permanent Marker', cursive;
         }
         button {
-            background-color: #E74C3C;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
+            font-size: 22px;
+            font-family: 'Luckiest Guy', cursive;
+            background-color: #FFA500;
+            color: #4B0082;
+            padding: 12px 25px;
             border: none;
+            border-radius: 12px;
+            box-shadow: 0px 7px 18px rgba(255, 165, 0, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.8);
         }
         .back-button {
             margin-top: 30px;
-        }
-        .back-button a {
-            text-decoration: none;
-            background-color: #E74C3C;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
             display: inline-block;
-            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
+            background-color: #4B0082;
+            padding: 12px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFD700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0px 7px 18px rgba(76, 175, 80, 0.6);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .back-button a:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(76, 175, 80, 0.8);
         }
     </style>
-    <script>
-        function submitEntry() {
-            const name = document.getElementById("name").value;
-            const discordUser = document.getElementById("discordUser").value;
-            if (!name || !discordUser) {
-                alert("Please fill in all fields!");
-                return;
-            }
-            
-            fetch('https://discord.com/api/webhooks/1345149170318577664/06zdnISGV17aFsh680K35662XihaPut22PB3CMUsPxup_BbEpN6SrqVEKm0auzfwhk8S', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ content: `New Giveaway Entry!\nName: ${name}\nDiscord: ${discordUser}` })
-            });
-            
-            setTimeout(() => {
-                let response = confirm("Now that you may win a Nitro for free, are you voting for us?");
-                if (!response) {
-                    alert("C'mon, you know we deserve it!");
-                } else {
-                    alert("Thank you for your vote!");
-                }
-            }, 500);
-        }
-    </script>
 </head>
 <body>
-    <header>Nitro Giveaway!</header>
+    <header>Groovy Giveaway - Scooby-Doo Style!</header>
     <div class="container">
-        <p>We believe in giving back to our amazing community! What better way to show our appreciation than with a <strong>Nitro Giveaway</strong>? 🎉</p>
-        <p>By voting for us, you're not just supporting a team dedicated to making the server better, but you're also entering a chance to win a Nitro subscription. It’s our way of saying THANK YOU! 💙</p>
-        <p class="highlight">You can't tell me we don’t deserve a vote! 😉</p>
-        <p>Simply enter your details below, and let’s make this community even more amazing together.</p>
-        <div class="entry-form">
-            <input type="text" id="name" placeholder="Enter your name">
-            <input type="text" id="discordUser" placeholder="Enter your Discord username">
-            <button onclick="submitEntry()">Enter Giveaway</button>
-        </div>
+        <h2>🎁 A Token of Our Appreciation! 🎉</h2>
+        <p>Like, zoinks! We totally appreciate all of you for being part of this awesome mystery-solving gang! 🕵️‍♂️</p>
+        <p>To show our love, we're giving away a free Discord Nitro! Because, c'mon, you can't tell me we don't deserve a vote! 😉</p>
+        
+        <h2>🎟️ How to Enter</h2>
+        <p>Just enter your Discord username below, and you’ll have a chance to win! It’s that easy, gang!</p>
+        
+        <form id="giveaway-form">
+            <input type="text" id="discord-user" placeholder="Enter your Discord username" required>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <h2>🔥 Why Your Vote Matters!</h2>
+        <p>Your vote isn’t just a click, it’s a sign that you believe in making this server the grooviest, most fun place around! Help us make it happen, mystery-solvers!</p>
     </div>
-    <div class="back-button">
-        <a href="main.html">← Back to Main Page</a>
-    </div>
+    <a href="index.html" class="back-button">Back to Main Page</a>
+
+    <script>
+        document.getElementById("giveaway-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let username = document.getElementById("discord-user").value;
+            let webhookURL = 'https://discord.com/api/webhooks/1345149170318577664/06zdnISGV17aFsh680K35662XihaPut22PB3CMUsPxup_BbEpN6SrqVEKm0auzfwhk8S';
+            
+            let request = new XMLHttpRequest();
+            request.open("POST", webhookURL);
+            request.setRequestHeader("Content-Type", "application/json");
+            
+            let data = {
+                content: `🎉 New Giveaway Entry! 🎉\n👤 Username: ${username}`
+            };
+            
+            request.send(JSON.stringify(data));
+            alert("Entry submitted! Good luck, mystery solver!");
+        });
+    </script>
 </body>
 </html>
