@@ -3,101 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>Give Us Your Thoughts!</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Fredoka+One&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1A1A2E, #0F3460);
-            color: white;
+            background-color: #3A6F3A;
+            background: url('https://i.imgur.com/your-scoobydoo-bg.png') no-repeat center center/cover;
+            color: #FFD700;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #E74C3C;
-            padding: 20px;
-            font-size: 42px;
-            font-weight: bold;
-            text-shadow: 3px 3px black;
-            border-bottom: 5px solid #C0392B;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 60px;
+            background-color: #4B0082;
+            color: #FFA500;
+            padding: 25px;
+            text-shadow: 5px 5px black;
+            border-bottom: 5px solid #FFD700;
         }
         .container {
             margin-top: 50px;
-            padding: 20px;
+            padding: 25px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.5);
+        }
+        h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 45px;
+            color: #4B0082;
+            text-shadow: 3px 3px black;
         }
         p {
-            font-size: 18px;
+            font-size: 22px;
             line-height: 1.6;
-        }
-        .highlight {
-            font-size: 24px;
-            font-weight: bold;
+            font-family: 'Permanent Marker', cursive;
             color: #FFD700;
-            margin-top: 20px;
-        }
-        .feedback-form {
-            margin-top: 30px;
+            text-shadow: 2px 2px black;
         }
         textarea {
             width: 80%;
-            height: 100px;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            text-align: center;
-        }
-        button {
-            background-color: #E74C3C;
-            color: white;
-            padding: 10px 20px;
+            height: 150px;
             font-size: 18px;
-            font-weight: bold;
+            padding: 10px;
             border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0px 5px 15px rgba(231, 76, 60, 0.5);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            border: none;
+            border: 3px solid #FFD700;
+            background: #4B0082;
+            color: #FFA500;
         }
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 7px 20px rgba(231, 76, 60, 0.7);
+        .submit-btn {
+            margin-top: 20px;
+            background-color: #FFD700;
+            padding: 15px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #4B0082;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0px 7px 18px rgba(255, 165, 0, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.8);
         }
         .back-button {
-            display: block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #4B0082;
+            padding: 12px 25px;
+            font-size: 20px;
             font-weight: bold;
+            color: #FFD700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0px 7px 18px rgba(76, 175, 80, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 25px rgba(76, 175, 80, 0.8);
         }
     </style>
 </head>
 <body>
-    <header>Feedback Corner</header>
+    <header>Zoinks! Give Us Your Thoughts!</header>
     <div class="container">
-        <p>Your opinion matters! We strive to make this server the best place for everyone, and we need your thoughts to do that.</p>
-        <p>Let us know what you think! Praise? Ideas? Even complaints? We’re here to listen and improve.</p>
-        <p class="highlight">Help us make the Scooby-Doo Gang the best choice for the server!</p>
-        <div class="feedback-form">
-            <textarea id="feedback" placeholder="Enter your feedback here..."></textarea>
-            <br>
-            <button onclick="submitFeedback()">Submit Feedback</button>
-        </div>
-        <a href="main.html" class="back-button">⬅ Go Back to Main Page</a>
+        <h2>Why We Deserve Your Vote!</h2>
+        <p>Like, Scoob and the gang have been solving mysteries for years, but now we need your help! Your feedback will help us be the ultimate team! So, tell us, are we the grooviest choice or what?</p>
+        <textarea id="feedback" placeholder="Type your feedback here..."></textarea><br>
+        <button class="submit-btn" onclick="sendFeedback()">Submit Feedback</button>
     </div>
+    <a href="index.html" class="back-button">Back to Main Page</a>
+    
     <script>
-        function submitFeedback() {
+        function sendFeedback() {
             const feedback = document.getElementById('feedback').value;
-            if (!feedback) {
-                alert("Please enter your feedback before submitting!");
+            if (!feedback.trim()) {
+                alert("Ruh-roh! You forgot to write something!");
                 return;
             }
             
@@ -107,20 +117,23 @@
             };
             
             fetch(webhookURL, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(payload)
-            }).then(response => {
+            })
+            .then(response => {
                 if (response.ok) {
-                    alert("Thanks for your feedback! We appreciate it.");
-                    document.getElementById('feedback').value = "";
+                    alert("Jinkies! Thanks for your feedback!");
+                    document.getElementById('feedback').value = '';
                 } else {
-                    alert("There was an issue submitting your feedback. Please try again later.");
+                    alert("Uh-oh! Something went wrong. Try again later!");
                 }
-            }).catch(error => {
-                alert("Error submitting feedback: " + error);
+            })
+            .catch(error => {
+                alert("Zoinks! An error occurred!");
+                console.error(error);
             });
         }
     </script>
