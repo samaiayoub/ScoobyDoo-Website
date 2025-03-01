@@ -56,39 +56,36 @@
             transform: scale(1.1);
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
-        .join-btn {
+        .giveaway-btn {
             position: relative;
-            background: #FF8C00;
-            color: white;
+            background: gold;
+            color: #FF4500;
             font-size: 26px;
-            font-weight: bold;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.8);
-            animation: sparkle 1.5s infinite alternate;
+            animation: glow 1.5s infinite alternate;
+            box-shadow: 0px 0px 20px gold;
         }
-        .join-btn::after {
-            content: 'NEW';
+        @keyframes glow {
+            0% { box-shadow: 0px 0px 10px gold; }
+            100% { box-shadow: 0px 0px 30px gold, 0px 0px 50px yellow; }
+        }
+        .giveaway-btn::after {
+            content: '✨';
             position: absolute;
             top: -10px;
             right: -10px;
-            background: gold;
-            color: red;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 3px 7px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px gold;
+            font-size: 20px;
+            animation: twinkle 1s infinite alternate;
         }
-        @keyframes sparkle {
-            0% { box-shadow: 0px 0px 10px rgba(255, 140, 0, 0.8); }
-            100% { box-shadow: 0px 0px 30px rgba(255, 165, 0, 1), 0px 0px 50px rgba(255, 69, 0, 1); }
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        .hurry-message {
+            font-size: 26px;
+            color: #FFD700;
+            margin-top: 20px;
+            text-shadow: 2px 2px #FF4500;
+            font-family: 'Luckiest Guy', cursive;
         }
         .spooky-mode {
             background: linear-gradient(135deg, #2B2B2B, #4B0082) !important;
@@ -120,13 +117,13 @@
     <button class="spooky-btn" onclick="toggleSpookyMode()">🔮</button>
     <header>Welcome to the Scooby-Doo Gang Official Site!</header>
     <div class="container">
-        <p>Join us as we unmask the future of this server! Our party is all about <strong>teamwork, fun, and solving mysteries</strong>—just like Scooby and the gang. 🕵️‍♂️🚐</p>
+        <p>Join us as we unmask the future of this server! Our party is all about **teamwork, fun, and solving mysteries**—just like Scooby and the gang. 🕵️‍♂️🚐</p>
         <p>Click below to explore:</p>
         <a href="members.html" class="btn">Meet the Members</a>
         <a href="goals.html" class="btn">Our Goals</a>
-        <a href="giveaway.html" class="btn">Nitro Giveaway</a>
+        <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <a href="scoobies.html" class="join-btn">Join Us!</a>
+        <p class="hurry-message">UH OH! Zoinks! Looks like the giveaway registrations are closed!  But HEY don’t ya worry, gang—we got plenty more surprises comin’ your way! So if ya didn’t win this time, next time’s your lucky break! 🎉<br>-Scooby-Doo Team-</p>
     </div>
     <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
     <script>
@@ -135,4 +132,3 @@
         }
     </script>
 </body>
-</html>
