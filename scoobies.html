@@ -74,7 +74,7 @@
     <header>Join the Scooby Gang!</header>
     <div class="container" id="startContainer">
         <p class="question">Only those who will vote for us can register here! 🤨<br>Are you sure, gang?!</p>
-        <button class="btn" onclick="showForm()">Like, duh! 😎</button>
+        <button class="btn" onclick="showForm()">Like, duh! </button>
     </div>
     
     <div class="container" id="formContainer">
@@ -101,7 +101,7 @@
                 return;
             }
             
-            fetch("https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o", {
+            fetch('https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: name })
