@@ -1,76 +1,119 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-export default function ScoobyMembers() {
-  const [name, setName] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [step, setStep] = useState(1);
-  const [members, setMembers] = useState([]);
-
-  const handleNext = () => setStep(2);
-
-  const sendToWebhook = (name) => {
-    const webhookUrl = "https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o";
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: `New Scooby Member: ${name}` }),
-    });
-  };
-
-  const handleJoin = () => {
-    const trimmedName = name.trim();
-    if (trimmedName !== "" && !members.includes(trimmedName)) {
-      setMembers([...members, trimmedName]);
-      setSubmitted(true);
-      sendToWebhook(trimmedName);
-    }
-  };
-
-  return (
-    <div className="flex flex-col items-center gap-8 p-8 min-h-screen bg-gradient-to-br from-[#1E90FF] to-[#32CD32] text-[#FFD700] font-scooby animate-fadeIn">
-      {step === 1 ? (
-        <Card className="w-full max-w-2xl bg-[#FF4500] text-white p-10 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
-          <CardContent>
-            <h2 className="text-5xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Are You a Real Scooby Voter?</h2>
-            <p className="mt-4 text-xl leading-relaxed italic">Only true Scooby voters can join our exclusive club! If you’re still unsure, better think twice!</p>
-            <p className="mt-2 text-lg font-semibold">No vote? No Scooby membership!</p>
-            <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-4 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleNext}>
-              I Pledge My Vote!
-            </Button>
-          </CardContent>
-        </Card>
-      ) : (
-        <Card className="w-full max-w-2xl bg-[#FF4500] text-white p-10 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
-          <CardContent>
-            {!submitted ? (
-              <>
-                <h2 className="text-5xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Join the Scooby Gang!</h2>
-                <p className="mt-4 text-xl leading-relaxed italic">By joining, you pledge to have fun, solve mysteries, and... VOTE FOR US!</p>
-                <p className="mt-2 text-lg font-semibold">No vote? No Scooby snacks!</p>
-                <p className="mt-6 text-2xl font-bold text-[#FFD700] underline">Enter your name to join:</p>
-                <Input
-                  className="mt-4 text-black text-center p-3 rounded-lg shadow-lg text-lg border-2 border-[#FFD700] focus:ring-4 focus:ring-yellow-400"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name..."
-                />
-                {members.includes(name.trim()) && name.trim() !== "" && (
-                  <p className="text-red-500 mt-3 font-bold">Zoinks! This name is already on the list!</p>
-                )}
-                <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-4 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleJoin}>
-                  Join the Gang!
-                </Button>
-              </>
-            ) : (
-              <h2 className="text-5xl font-extrabold text-[#FFD700] drop-shadow-lg animate-jumpIn">Welcome, {name}! You're officially a Scooby Member!</h2>
-            )}
-          </CardContent>
-        </Card>
-      )}
-      <a href="index.html" className="bg-[#FF4500] text-[#FFD700] text-2xl font-bold px-6 py-3 rounded-lg shadow-xl hover:bg-[#E65100] transition duration-300 transform hover:scale-105">Back to Main Page</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Scooby Gang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+        body {
+            font-family: 'Luckiest Guy', cursive;
+            background: linear-gradient(135deg, #1E90FF, #32CD32);
+            color: #FFD700;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            animation: backgroundGlow 3s infinite alternate;
+        }
+        @keyframes backgroundGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+        header {
+            background-color: #FF4500;
+            padding: 20px;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 3px 3px black;
+            border-bottom: 5px solid #C0392B;
+            animation: bounce 1.5s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(10px); }
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+        }
+        .question {
+            font-size: 28px;
+            text-shadow: 2px 2px black;
+        }
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: #FF4500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            width: 250px;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
+        }
+        #formContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>Join the Scooby Gang!</header>
+    <div class="container" id="startContainer">
+        <p class="question">Only those who will vote for us can register here! 🤨<br>Are you sure, gang?!</p>
+        <button class="btn" onclick="showForm()">Like, duh! 😎</button>
     </div>
-  );
-}
+    
+    <div class="container" id="formContainer">
+        <p class="question">Enter your name to become a Scooby Member!</p>
+        <input type="text" id="nameInput" placeholder="Enter your name..." style="font-size: 20px; padding: 10px; border-radius: 10px; border: 2px solid #FF4500;">
+        <button class="btn" onclick="submitForm()">Join Now!</button>
+    </div>
+
+    <div class="container" id="thankYouContainer" style="display: none;">
+        <p class="question">Zoinks! Thanks for joining, gang! 🎉<br>You’re now part of the mystery-solving squad! 🕵️‍♂️🚐</p>
+        <button class="btn" onclick="goBack()">Go Back to Main</button>
+    </div>
+    
+    <script>
+        function showForm() {
+            document.getElementById("startContainer").style.display = "none";
+            document.getElementById("formContainer").style.display = "block";
+        }
+        
+        function submitForm() {
+            let name = document.getElementById("nameInput").value;
+            if (name.trim() === "") {
+                alert("Please enter your name!");
+                return;
+            }
+            
+            fetch("https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name })
+            });
+            
+            document.getElementById("formContainer").style.display = "none";
+            document.getElementById("thankYouContainer").style.display = "block";
+        }
+        
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
