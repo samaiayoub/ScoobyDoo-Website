@@ -39,6 +39,7 @@
         }
         .btn {
             display: block;
+            position: relative;
             margin: 15px auto;
             padding: 15px 30px;
             font-size: 24px;
@@ -51,11 +52,14 @@
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             width: 250px;
+            text-align: center;
         }
         .btn:hover {
             transform: scale(1.1);
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
+
+        /* Giveaway Button */
         .giveaway-btn {
             position: relative;
             background: gold;
@@ -69,17 +73,47 @@
             100% { box-shadow: 0px 0px 30px gold, 0px 0px 50px yellow; }
         }
         .giveaway-btn::after {
-            content: '✨';
+            content: 'Closed :(';
             position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 20px;
-            animation: twinkle 1s infinite alternate;
+            top: -12px;
+            right: -15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: red;
+            padding: 5px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.7);
         }
-        @keyframes twinkle {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; transform: scale(1.2); }
+
+        /* Join Us Button */
+        .join-btn {
+            position: relative;
+            background: linear-gradient(45deg, #FFD700, #FF8C00);
+            color: #8B0000;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+            animation: shine 1.5s infinite alternate;
         }
+        @keyframes shine {
+            0% { box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8); }
+            100% { box-shadow: 0px 0px 30px rgba(255, 165, 0, 1); }
+        }
+        .join-btn::after {
+            content: 'NEW!';
+            position: absolute;
+            top: -12px;
+            right: -15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: green;
+            padding: 5px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.7);
+        }
+
         .hurry-message {
             font-size: 26px;
             color: #FFD700;
@@ -123,7 +157,8 @@
         <a href="goals.html" class="btn">Our Goals</a>
         <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <p class="hurry-message">UH OH! Zoinks! Looks like the giveaway registrations are closed!  But HEY don’t ya worry, gang—we got plenty more surprises comin’ your way! So if ya didn’t win this time, next time’s your lucky break! 🎉<br>-Scooby-Doo Team-</p>
+        <a href="scoobies.html" class="btn join-btn">Join Us</a>
+        <p class="hurry-message">UH OH! Zoinks! Looks like the giveaway registrations are closed! But HEY don’t ya worry, gang—we got plenty more surprises comin’ your way! So if ya didn’t win this time, next time’s your lucky break! 🎉<br>-Scooby-Doo Team-</p>
     </div>
     <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
     <script>
@@ -132,3 +167,4 @@
         }
     </script>
 </body>
+</html>
