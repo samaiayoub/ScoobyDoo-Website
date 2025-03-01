@@ -30,37 +30,37 @@ export default function ScoobyMembers() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 p-6 min-h-screen bg-gradient-to-br from-[#1E90FF] to-[#32CD32] text-[#FFD700] font-scooby animate-fadeIn sparkle">
+    <div className="flex flex-col items-center gap-8 p-8 min-h-screen bg-gradient-to-br from-[#1E90FF] to-[#32CD32] text-[#FFD700] font-scooby animate-fadeIn">
       {step === 1 ? (
-        <Card className="w-full max-w-lg bg-[#FF4500] text-white p-8 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
+        <Card className="w-full max-w-2xl bg-[#FF4500] text-white p-10 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
           <CardContent>
-            <h2 className="text-6xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Are You a Real Scooby Voter?</h2>
+            <h2 className="text-5xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Are You a Real Scooby Voter?</h2>
             <p className="mt-4 text-xl leading-relaxed italic">Only true Scooby voters can join our exclusive club! If you’re still unsure, better think twice!</p>
             <p className="mt-2 text-lg font-semibold">No vote? No Scooby membership!</p>
-            <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-3 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleNext}>
+            <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-4 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleNext}>
               I Pledge My Vote!
             </Button>
           </CardContent>
         </Card>
       ) : (
-        <Card className="w-full max-w-lg bg-[#FF4500] text-white p-8 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
+        <Card className="w-full max-w-2xl bg-[#FF4500] text-white p-10 shadow-2xl text-center rounded-3xl border-4 border-[#FFD700] transform hover:scale-105 transition-all duration-300 animate-glow">
           <CardContent>
             {!submitted ? (
               <>
-                <h2 className="text-6xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Join the Scooby Gang!</h2>
+                <h2 className="text-5xl font-extrabold text-[#FFD700] drop-shadow-md animate-pulse">Join the Scooby Gang!</h2>
                 <p className="mt-4 text-xl leading-relaxed italic">By joining, you pledge to have fun, solve mysteries, and... VOTE FOR US!</p>
                 <p className="mt-2 text-lg font-semibold">No vote? No Scooby snacks!</p>
                 <p className="mt-6 text-2xl font-bold text-[#FFD700] underline">Enter your name to join:</p>
                 <Input
-                  className="mt-4 text-black text-center p-3 rounded-lg shadow-lg text-lg border-2 border-[#FFD700] focus:ring-4 focus:ring-yellow-400 animate-bounce"
+                  className="mt-4 text-black text-center p-3 rounded-lg shadow-lg text-lg border-2 border-[#FFD700] focus:ring-4 focus:ring-yellow-400"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name..."
                 />
                 {members.includes(name.trim()) && name.trim() !== "" && (
-                  <p className="text-red-500 mt-3 font-bold animate-bounce">Zoinks! This name is already on the list!</p>
+                  <p className="text-red-500 mt-3 font-bold">Zoinks! This name is already on the list!</p>
                 )}
-                <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-3 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleJoin}>
+                <Button className="mt-6 w-full bg-[#FFD700] text-[#FF4500] hover:bg-[#FFC300] p-4 text-2xl font-bold rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110" onClick={handleJoin}>
                   Join the Gang!
                 </Button>
               </>
