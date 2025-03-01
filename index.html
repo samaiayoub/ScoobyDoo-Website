@@ -13,6 +13,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            transition: background 0.5s, color 0.5s;
         }
         header {
             background-color: #FF4500;
@@ -86,9 +87,34 @@
             text-shadow: 2px 2px #FF4500;
             font-family: 'Luckiest Guy', cursive;
         }
+        .spooky-mode {
+            background: linear-gradient(135deg, #2B2B2B, #4B0082) !important;
+            color: #00FF00 !important;
+        }
+        .spooky-mode header {
+            background-color: #8B0000 !important;
+        }
+        .spooky-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: black;
+            color: lime;
+            border: 2px solid lime;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .spooky-btn:hover {
+            background: lime;
+            color: black;
+        }
     </style>
 </head>
 <body>
+    <button class="spooky-btn" onclick="toggleSpookyMode()">🔮</button>
     <header>Welcome to the Scooby-Doo Gang Official Site!</header>
     <div class="container">
         <p>Join us as we unmask the future of this server! Our party is all about **teamwork, fun, and solving mysteries**—just like Scooby and the gang. 🕵️‍♂️🚐</p>
@@ -100,5 +126,10 @@
         <p class="hurry-message">UH OH! Zoinks! Looks like the giveaway registrations are closed!  But HEY don’t ya worry, gang—we got plenty more surprises comin’ your way! So if ya didn’t win this time, next time’s your lucky break! 🎉<br>-Scooby-Doo Team-</p>
     </div>
     <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
+    <script>
+        function toggleSpookyMode() {
+            document.body.classList.toggle('spooky-mode');
+        }
+    </script>
 </body>
 </html>
