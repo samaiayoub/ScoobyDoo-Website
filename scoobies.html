@@ -81,14 +81,11 @@
             font-size: 26px;
             text-shadow: 2px 2px black;
             animation: fadeIn 0.5s ease-in-out, pop 0.5s ease-in-out;
+            z-index: 1000;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -55%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-        @keyframes pop {
-            0% { transform: scale(0.8); }
-            100% { transform: scale(1); }
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
     </style>
 </head>
