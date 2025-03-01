@@ -65,16 +65,38 @@
             transform: scale(1.1);
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
-        #formContainer {
+        #formContainer, #popup {
             display: none;
+        }
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FF4500;
+            color: #FFD700;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 69, 0, 0.7);
+            font-size: 26px;
+            text-shadow: 2px 2px black;
+            animation: fadeIn 0.5s ease-in-out, pop 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -55%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        @keyframes pop {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <header>Join the Scooby Gang!</header>
     <div class="container" id="startContainer">
-        <p class="question">Only those who will vote for us can register here! 🤨<br>Are you sure, gang?!</p>
-        <button class="btn" onclick="showForm()">Like, duh! </button>
+        <p class="question">Only those who pinky promise to vote for us can register here! 🕵️‍♂️<br>Are you super-duper sure, gang?!</p>
+        <button class="btn" onclick="showForm()">YES, I SWEAR ON SCOOBY SNACKS! 🤩</button>
     </div>
     
     <div class="container" id="formContainer">
@@ -83,8 +105,8 @@
         <button class="btn" onclick="submitForm()">Join Now!</button>
     </div>
 
-    <div class="container" id="thankYouContainer" style="display: none;">
-        <p class="question">Zoinks! Thanks for joining, gang! 🎉<br>You’re now part of the mystery-solving squad! 🕵️‍♂️🚐</p>
+    <div id="popup">
+        <p>YOU ARE ONE OF US NOW! 🎉<br>LET'S MAKE HAVENVIEL GREAT AGAIN! 🚐💨</p>
         <button class="btn" onclick="goBack()">Go Back to Main</button>
     </div>
     
@@ -97,18 +119,24 @@
         function submitForm() {
             let name = document.getElementById("nameInput").value;
             if (name.trim() === "") {
-                alert("Please enter your name!");
+                alert("Ruh-roh! You forgot to enter your name!");
                 return;
             }
             
-            fetch('https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o', {
+            fetch("https://discord.com/api/webhooks/1345468587904729109/rdVFb9x9OtHQWuavN7nf5NVapnxCuc8NTVs-KwERl92n55YHHUZmKOdF_JPL6WWbZC1o", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name: name })
-            });
-            
-            document.getElementById("formContainer").style.display = "none";
-            document.getElementById("thankYouContainer").style.display = "block";
+                body: JSON.stringify({ content: `New Scooby Member: ${name}` })
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("formContainer").style.display = "none";
+                    document.getElementById("popup").style.display = "block";
+                } else {
+                    alert("Zoinks! Something went wrong. Try again!");
+                }
+            })
+            .catch(error => alert("Yikes! There was an error: " + error));
         }
         
         function goBack() {
