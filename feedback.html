@@ -3,139 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Give Us Your Thoughts!</title>
+    <title>Feedback - The Scooby-Doo Gang</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Fredoka+One&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #3A6F3A;
-            background: url('https://i.imgur.com/your-scoobydoo-bg.png') no-repeat center center/cover;
+            font-family: 'Luckiest Guy', cursive;
+            background: linear-gradient(135deg, #1E90FF, #32CD32);
             color: #FFD700;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         header {
-            font-family: 'Luckiest Guy', cursive;
-            font-size: 60px;
-            background-color: #4B0082;
-            color: #FFA500;
-            padding: 25px;
-            text-shadow: 5px 5px black;
-            border-bottom: 5px solid #FFD700;
+            background-color: #FF4500;
+            padding: 20px;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 3px 3px black;
+            border-bottom: 5px solid #C0392B;
         }
         .container {
             margin-top: 50px;
-            padding: 25px;
-            max-width: 800px;
+            padding: 20px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 165, 0, 0.2);
-            border-radius: 20px;
-            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
         }
-        h2 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 45px;
-            color: #4B0082;
-            text-shadow: 3px 3px black;
+        h1 {
+            font-size: 60px;
+            text-shadow: 4px 4px black;
+            color: #FF4500;
         }
-        p {
+        label, textarea {
             font-size: 22px;
-            line-height: 1.6;
-            font-family: 'Permanent Marker', cursive;
+            display: block;
+            margin: 15px auto;
             color: #FFD700;
-            text-shadow: 2px 2px black;
         }
         textarea {
             width: 80%;
             height: 150px;
-            font-size: 18px;
+            border-radius: 12px;
             padding: 10px;
-            border-radius: 10px;
-            border: 3px solid #FFD700;
-            background: #4B0082;
-            color: #FFA500;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
         }
-        .submit-btn {
-            margin-top: 20px;
-            background-color: #FFD700;
+        .btn {
+            display: block;
+            margin: 15px auto;
             padding: 15px 30px;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            color: #4B0082;
+            color: white;
+            background: #FF4500;
+            border: none;
             border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0px 7px 18px rgba(255, 165, 0, 0.6);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .submit-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.8);
-        }
-        .back-button {
-            margin-top: 30px;
-            display: inline-block;
-            background-color: #4B0082;
-            padding: 12px 25px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #FFD700;
-            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
-            box-shadow: 0px 7px 18px rgba(76, 175, 80, 0.6);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 250px;
         }
-        .back-button:hover {
+        .btn:hover {
             transform: scale(1.1);
-            box-shadow: 0px 10px 25px rgba(76, 175, 80, 0.8);
+            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #FFF;
         }
     </style>
 </head>
 <body>
-    <header>Zoinks! Give Us Your Thoughts!</header>
+    <header>Give Your Feedback!</header>
     <div class="container">
-        <h2>Why We Deserve Your Vote!</h2>
-        <p>Like, Scoob and the gang have been solving mysteries for years, but now we need your help! Your feedback will help us be the ultimate team! So, tell us, are we the grooviest choice or what?</p>
-        <textarea id="feedback" placeholder="Type your feedback here..."></textarea><br>
-        <button class="submit-btn" onclick="sendFeedback()">Submit Feedback</button>
+        <h1>YOUR OPINION MATTERS!</h1>
+        <p>Zoinks! We wanna hear from ya! Tell us what ya think about our team, and why we totally deserve your vote! 🕵️‍♂️🚐</p>
+        <form id="feedbackForm">
+            <label for="feedback">Your Thoughts:</label>
+            <textarea id="feedback" name="feedback" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <a href="index.html" class="btn">Go Back to Main</a>
     </div>
-    <a href="index.html" class="back-button">Back to Main Page</a>
-    
+    <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
     <script>
-        function sendFeedback() {
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
             const feedback = document.getElementById('feedback').value;
-            if (!feedback.trim()) {
-                alert("Ruh-roh! You forgot to write something!");
-                return;
-            }
-            
-            const webhookURL = 'https://discord.com/api/webhooks/1345150348339318784/bEolpuVcTng_I6ns9zcZ_eTwjwpNKWW5uFMm-i7pn1-0YvzT1YEu6zdusfArMpjgzOME';
-            const payload = {
-                content: `New Feedback Received: ${feedback}`
-            };
-            
-            fetch(webhookURL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("Jinkies! Thanks for your feedback!");
-                    document.getElementById('feedback').value = '';
-                } else {
-                    alert("Uh-oh! Something went wrong. Try again later!");
-                }
-            })
-            .catch(error => {
-                alert("Zoinks! An error occurred!");
-                console.error(error);
+            fetch('https://discord.com/api/webhooks/1345150348339318784/bEolpuVcTng_I6ns9zcZ_eTwjwpNKWW5uFMm-i7pn1-0YvzT1YEu6zdusfArMpjgzOME', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: `New Feedback: ${feedback}` })
             });
-        }
+            alert('Thanks for your feedback! We promise to keep solving mysteries and making this the best experience ever!');
+            document.getElementById('feedbackForm').reset();
+        });
     </script>
 </body>
 </html>
