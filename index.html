@@ -58,29 +58,18 @@
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
         .giveaway-btn {
-            background: #FF4500;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
             position: relative;
         }
         .giveaway-btn::after {
-            content: 'Closed :(';
+            content: 'Ended :(';
             position: absolute;
             top: -10px;
             right: -10px;
             font-size: 14px;
-            background: red;
+            background: black;
             color: white;
             padding: 2px 5px;
             border-radius: 5px;
-        }
-        .hurry-message {
-            font-size: 26px;
-            color: #FFD700;
-            margin-top: 20px;
-            text-shadow: 2px 2px #FF4500;
-            font-family: 'Luckiest Guy', cursive;
         }
         .spooky-mode {
             background: linear-gradient(135deg, #2B2B2B, #4B0082) !important;
@@ -106,6 +95,12 @@
             background: lime;
             color: black;
         }
+        .updates-message {
+            font-size: 32px;
+            color: #DC143C;
+            text-shadow: 3px 3px black;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -118,9 +113,8 @@
         <a href="goals.html" class="btn">Our Goals</a>
         <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <p class="hurry-message">UH OH! Zoinks! Looks like the giveaway registrations are closed!  But HEY don’t ya worry, gang—we got plenty more surprises comin’ your way! So if ya didn’t win this time, next time’s your lucky break! 🎉<br>-Scooby-Doo Team-</p>
     </div>
-    <div class="footer">🔍 Many exciting updates coming soon! Stay tuned! 🔍</div>
+    <p class="updates-message">MORE UPDATES COMING SOON!</p>
     <script>
         function toggleSpookyMode() {
             document.body.classList.toggle('spooky-mode');
