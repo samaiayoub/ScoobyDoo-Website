@@ -15,6 +15,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         header {
             font-family: 'Luckiest Guy', cursive;
@@ -34,12 +35,26 @@
             background: rgba(255, 165, 0, 0.2);
             border-radius: 20px;
             box-shadow: 0px 10px 25px rgba(255, 165, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .container:hover {
+            transform: scale(1.02);
         }
         h2 {
             font-family: 'Luckiest Guy', cursive;
             font-size: 40px;
             color: #FFA500;
             text-shadow: 3px 3px black;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 3px 3px black; }
+            to { text-shadow: 5px 5px #FFD700; }
         }
         p {
             font-size: 22px;
@@ -47,6 +62,10 @@
             font-family: 'Permanent Marker', cursive;
             color: #FFD700;
             text-shadow: 2px 2px black;
+            transition: transform 0.3s ease-in-out;
+        }
+        p:hover {
+            transform: scale(1.05);
         }
         .back-button {
             margin-top: 30px;
@@ -60,6 +79,21 @@
             text-decoration: none;
             box-shadow: 0px 7px 18px rgba(76, 175, 80, 0.6);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease-in-out;
+        }
+        .back-button:hover::before {
+            left: 100%;
         }
         .back-button:hover {
             transform: scale(1.1);
@@ -71,19 +105,19 @@
     <header>Our Groovy Goals!</header>
     <div class="container">
         <h2>🔍 Solving Problems, One Mystery at a Time!</h2>
-        <p>Like, zoinks! Our mission, man, is to keep things fair, fun, and full of positive vibes! 🕵️‍♂️</p>
+        <p class="animated-text">Like, zoinks! Our mission, man, is to keep things fair, fun, and full of positive vibes! 🕵️‍♂️</p>
         <p>We're here to solve problems, unmask negativity, and make sure every member of the server has a voice!</p>
         
         <h2>🧩 Teamwork Makes the Dream Work!</h2>
-        <p>Jinkies! Just like how Velma always pieces the clues together, we want to put together a community that thrives on respect and teamwork.</p>
+        <p class="animated-text">Jinkies! Just like how Velma always pieces the clues together, we want to put together a community that thrives on respect and teamwork.</p>
         <p>Fred would totally say, "It's all about having a plan!"—and our plan is to bring a fresh, creative approach to making the server more engaging!</p>
         
         <h2>✨ Aesthetic and Fun Improvements!</h2>
-        <p>Daphne’s got style, and so do we! We’ll add aesthetic updates, new events, and surprises to keep things exciting.</p>
+        <p class="animated-text">Daphne’s got style, and so do we! We’ll add aesthetic updates, new events, and surprises to keep things exciting.</p>
         <p>And Scooby-Doo? Well, he just wants snacks… and votes! You can't tell me we don't deserve a vote, gang! 🐾</p>
         
         <h2>🔥 Why Your Vote Matters!</h2>
-        <p>Your vote helps us shape the server into something fun, engaging, and mystery-solving worthy! Every click supports our goal to keep things groovy and fair for everyone!</p>
+        <p class="animated-text">Your vote helps us shape the server into something fun, engaging, and mystery-solving worthy! Every click supports our goal to keep things groovy and fair for everyone!</p>
     </div>
     <a href="index.html" class="back-button">Back to Main Page</a>
 </body>
