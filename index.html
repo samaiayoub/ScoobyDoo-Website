@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Scooby-Doo Gang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+        body {
+            font-family: 'Luckiest Guy', cursive;
+            background: linear-gradient(135deg, #6A5ACD, #20B2AA);
+            color: #FFD700;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 48px;
+            text-shadow: 3px 3px black;
+        }
+        p {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: #FF4500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Detective!</h1>
+        <p>Step into the Mystery Machine and join the Scooby-Doo Gang as we unmask the truth!</p>
+        <button class="btn" onclick="nextPage()">Next</button>
+    </div>
+    <script>
+        function nextPage() {
+            fetch('https://discord.com/api/webhooks/1346110598169104424/TshJrFbOy7Y3pRRCoLu7rE1WEK8-vumoeu2BwRrTbX7ZQAFdepg7cQI_lI5hbtC5C0sR', { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify({ event: 'visitor_clicked_next' })
+            }).then(() => {
+                window.location.href = 'main.html'; 
+            });
+        }
+    </script>
+</body>
+</html>
