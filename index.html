@@ -6,6 +6,7 @@
     <title>The Scooby-Doo Gang</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         body {
             font-family: 'Luckiest Guy', cursive;
             background: linear-gradient(135deg, #1E90FF, #32CD32);
@@ -58,10 +59,15 @@
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
         .giveaway-btn {
+            background: grey;
+            color: darkred;
+            text-decoration: line-through;
             position: relative;
+            cursor: not-allowed;
+            box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.5);
         }
         .giveaway-btn::after {
-            content: 'Ended :(';
+            content: 'Zoinks! It Ended';
             position: absolute;
             top: -10px;
             right: -10px;
@@ -71,34 +77,38 @@
             padding: 2px 5px;
             border-radius: 5px;
         }
-        .spooky-mode {
-            background: linear-gradient(135deg, #2B2B2B, #4B0082) !important;
-            color: #00FF00 !important;
+        .giveaway-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/5/5e/Spider_Web.svg');
+            background-size: cover;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
         }
-        .spooky-mode header {
-            background-color: #8B0000 !important;
-        }
-        .spooky-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
+        .giveaway-btn .spider {
+            position: absolute;
+            width: 20px;
+            height: 20px;
             background: black;
-            color: lime;
-            border: 2px solid lime;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: background 0.3s, color 0.3s;
+            border-radius: 50%;
+            top: -5px;
+            left: 10px;
         }
-        .spooky-btn:hover {
-            background: lime;
-            color: black;
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
         .updates-message {
             font-size: 32px;
+            font-family: 'Press Start 2P', cursive;
             color: #DC143C;
-            text-shadow: 3px 3px black;
+            text-shadow: 4px 4px black;
             margin-top: 30px;
         }
     </style>
@@ -111,13 +121,19 @@
         <p>Click below to explore:</p>
         <a href="members.html" class="btn">Meet the Members</a>
         <a href="goals.html" class="btn">Our Goals</a>
-        <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
+        <a href="#" class="btn giveaway-btn" onclick="shakeButton(event)">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
     </div>
     <p class="updates-message">MORE UPDATES COMING SOON!</p>
     <script>
         function toggleSpookyMode() {
             document.body.classList.toggle('spooky-mode');
+        }
+        function shakeButton(event) {
+            event.preventDefault();
+            let button = event.target;
+            button.style.animation = 'shake 0.5s';
+            setTimeout(() => button.style.animation = '', 500);
         }
     </script>
 </body>
