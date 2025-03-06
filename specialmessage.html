@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message for Piper</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        body {
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(255, 105, 180, 0.6);
+            width: 80%;
+            max-width: 500px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+        }
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn {
+            background: #ff1493;
+            color: white;
+        }
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(255, 20, 147, 0.8);
+        }
+        .hidden {
+            display: none;
+        }
+        .message-box {
+            background: white;
+            color: #ff1493;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        .go-back {
+            background: #ff69b4;
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .go-back:hover {
+            background: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter the Secret Code (only piper is allowed here)</h2>
+        <input type="password" id="password" placeholder="Enter code...">
+        <button class="btn submit-btn" onclick="checkPassword()">Submit</button>
+        <div id="firstMessage" class="message-box hidden">HI PRETTY 💕
+            <button class="btn submit-btn" onclick="showLetter()">Next</button>
+        </div>
+        <div id="letter" class="message-box hidden">
+            <h2>To the prettiest of them all 💌</h2>
+            <p>HEY I HOPE U LIKED THE THING, anyways i love you so much and u literally mean the world to me and i promise we will be together irl one day, we will cuddle and kiss and have good times, ur my fav person ever and i would do anything for you, i hope u feel the same way, also i would like to apologyze on everything ive done that made u upset, i love you so much and i hope we stay together for ever and bleed in war and die tgthr, ty for reading pretty and ilysm!</p>
+        </div>
+    </div>
+    <a href="main.html" class="go-back">Go Back to Main</a>
+    <script>
+        function checkPassword() {
+            let password = document.getElementById("password").value;
+            if (password === "1213140") {
+                document.getElementById("firstMessage").classList.remove("hidden");
+            } else {
+                alert("UR NOT PIPER, GET OUT!");
+            }
+        }
+        function showLetter() {
+            document.getElementById("firstMessage").classList.add("hidden");
+            document.getElementById("letter").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
