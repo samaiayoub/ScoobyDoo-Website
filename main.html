@@ -59,50 +59,28 @@
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
         .giveaway-btn {
-            background: grey;
-            color: darkred;
-            text-decoration: line-through;
+            background: linear-gradient(45deg, gold, orange);
+            color: white;
+            text-shadow: 2px 2px black;
             position: relative;
-            cursor: not-allowed;
-            box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.8);
+            animation: sparkle 1s infinite alternate;
         }
         .giveaway-btn::after {
-            content: 'Zoinks! It Ended';
+            content: 'Opened!';
             position: absolute;
             top: -10px;
             right: -10px;
             font-size: 14px;
-            background: black;
+            background: green;
             color: white;
             padding: 2px 5px;
             border-radius: 5px;
         }
-        .giveaway-btn::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/5/5e/Spider_Web.svg');
-            background-size: cover;
-            top: 0;
-            left: 0;
-            opacity: 0.5;
-        }
-        .giveaway-btn .spider {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: black;
-            border-radius: 50%;
-            top: -5px;
-            left: 10px;
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+        @keyframes sparkle {
+            0% { box-shadow: 0px 0px 10px gold; }
+            100% { box-shadow: 0px 0px 20px white; }
         }
         .updates-message {
             font-size: 32px;
@@ -120,17 +98,9 @@
         <p>Click below to explore:</p>
         <a href="members.html" class="btn">Meet the Members</a>
         <a href="goals.html" class="btn">Our Goals</a>
-        <a href="#" class="btn giveaway-btn" onclick="shakeButton(event)">Nitro Giveaway</a>
+        <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
     </div>
-    <p class="updates-message">MORE UPDATES COMING SOON!</p>
-    <script>
-        function shakeButton(event) {
-            event.preventDefault();
-            let button = event.target;
-            button.style.animation = 'shake 0.5s';
-            setTimeout(() => button.style.animation = '', 500);
-        }
-    </script>
+    <p class="updates-message">THE GIVEAWAY IS BACK ON!</p>
 </body>
 </html>
