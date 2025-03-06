@@ -15,7 +15,7 @@
             padding: 0;
         }
         header {
-            background-color: #FF4500;
+            background-color: #FF0000;
             padding: 20px;
             font-size: 55px;
             font-weight: bold;
@@ -25,75 +25,87 @@
         .container {
             margin-top: 50px;
             padding: 20px;
-            max-width: 900px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
         }
-        .countdown {
-            font-size: 60px;
-            text-shadow: 6px 6px black;
-            color: #FFD700;
-            margin-top: 20px;
+        .input-box {
+            width: 80%;
+            padding: 15px;
+            font-size: 22px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            outline: none;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .winner-announcement {
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 15px 30px;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+            background: #FF4500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            width: 300px;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
+        }
+        .success-message {
+            color: #00FF00;
+            font-size: 32px;
+            margin-top: 20px;
             display: none;
-            font-size: 70px;
-            color: gold;
-            text-shadow: 7px 7px black;
-            margin-top: 30px;
         }
-        .speech {
-            font-size: 35px;
-            margin-top: 20px;
+        .appreciation {
+            font-size: 24px;
             color: #FFD700;
-            text-shadow: 4px 4px black;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <header>🚀 SCOOBY-DOO NITRO GIVEAWAY 🚀</header>
+    <header>THE NITRO GIVEAWAY IS BACK</header>
     <div class="container">
-        <p>Zoinks! The big moment is almost here, gang! The suspense is higher than when we unmask a villain! When the timer hits zero, we’ll reveal the lucky winner of the Nitro Giveaway! 🤩🔍</p>
-        <div id="countdown" class="countdown"></div>
-        <div id="winner" class="winner-announcement">🎉 CONGRATULATIONS TO <span id="winner-name">scarlicbread.(SCARLET)</span>! 🎉</div>
-        <p id="speech" class="speech" style="display: none;">Ruh-roh! Didn’t win this time? Don’t fret, mystery-solving pals! We promise there are more giveaways, more fun, and more Scooby snacks coming your way! Just stick with us and VOTE for the Scooby-Doo team to make this server even groovier! 🕵️‍♂️💙 -Scooby-Doo Team-</p>
+        <p>We appreciate each and every one of you who supports us and is willing to vote for our team. Your engagement and love for this community mean the world to us, and this giveaway is our way of showing our gratitude. Thank you for being part of this journey—we’ve got you covered! 💛</p>
+        <p>Enter your Discord username below to participate in the giveaway!</p>
+        <input type="text" id="discordUser" class="input-box" placeholder="Enter your Discord username...">
+        <button class="btn" onclick="submitEntry()">Enter Giveaway</button>
+        <p id="successMessage" class="success-message">You are now in the list, good luck! 🍀</p>
     </div>
     <script>
-        function startCountdown() {
-            const countdownElement = document.getElementById("countdown");
-            const winnerElement = document.getElementById("winner");
-            const speechElement = document.getElementById("speech");
-            
-            const targetTime = new Date("March 2, 2025 21:00:00 GMT+1").getTime();
-            
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const timeLeft = targetTime - now;
-                
-                if (timeLeft <= 0) {
-                    countdownElement.style.display = "none";
-                    winnerElement.style.display = "block";
-                    speechElement.style.display = "block";
-                    clearInterval(timer);
-                    return;
-                }
-                
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-                const seconds = Math.floor((timeLeft / 1000) % 60);
-                
-                countdownElement.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left!`;
+        function submitEntry() {
+            let username = document.getElementById("discordUser").value;
+            let successMessage = document.getElementById("successMessage");
+            if (!username) {
+                alert("Please enter your Discord username!");
+                return;
             }
-            
-            updateCountdown();
-            const timer = setInterval(updateCountdown, 1000);
+            let webhookUrl = "https://discord.com/api/webhooks/1347280253940138014/HUVtvT0i6lKd6Kk_AHf0bjd3X3YWE3lYZ6OLa3kZKHYZiK-Qvl3CZeogDHqwZqZAcGTd"; // Replace with your actual webhook URL
+            let payload = { content: `New Giveaway Entry: ${username}` };
+            fetch(webhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if (response.ok) {
+                    successMessage.style.display = "block";
+                } else {
+                    alert("Failed to submit. Please try again later.");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            });
         }
-        
-        startCountdown();
     </script>
-</body>
-</html>
