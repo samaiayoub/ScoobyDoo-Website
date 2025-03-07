@@ -104,6 +104,24 @@
             transform: rotate(-10deg);
         }
         
+        .mack-frame {
+            position: relative;
+        }
+        .mack-frame::after {
+            content: 'GIVEAWAY FUNDER!';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            transform: rotate(-10deg);
+        }
+        
         .btn {
             display: block;
             margin: 30px auto;
@@ -133,7 +151,7 @@
             <p>The brains of the operation! Always two steps ahead in solving mysteries.</p>
             <span class="tag">@unbotheredethan.</span>
         </div>
-        <div class="member" onclick="toggleTag(this)">
+        <div class="member mack-frame" onclick="toggleTag(this)">
             <h2>Shaggy (Mack)</h2>
             <p>The chill dude (she's a girl) who always keeps things groovy!</p>
             <span class="tag">@.mack</span>
