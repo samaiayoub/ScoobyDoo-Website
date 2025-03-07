@@ -59,28 +59,33 @@
             box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
         }
         .giveaway-btn {
-            background: linear-gradient(45deg, gold, orange);
+            background: grey;
             color: white;
             text-shadow: 2px 2px black;
+            cursor: not-allowed;
             position: relative;
-            cursor: pointer;
-            box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.8);
-            animation: sparkle 1s infinite alternate;
+            box-shadow: none;
         }
         .giveaway-btn::after {
-            content: 'Opened!';
+            content: 'ended:(';
             position: absolute;
             top: -10px;
             right: -10px;
             font-size: 14px;
-            background: green;
+            background: black;
             color: white;
             padding: 2px 5px;
             border-radius: 5px;
         }
-        @keyframes sparkle {
-            0% { box-shadow: 0px 0px 10px gold; }
-            100% { box-shadow: 0px 0px 20px white; }
+        .giveaway-btn:active {
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
         .updates-message {
             font-size: 32px;
@@ -88,37 +93,6 @@
             color: #DC143C;
             text-shadow: 4px 4px black;
             margin-top: 30px;
-        }
-        .piper-btn {
-            background: linear-gradient(45deg, pink, hotpink);
-            color: white;
-            text-shadow: 2px 2px black;
-            border: none;
-            border-radius: 12px;
-            padding: 15px 30px;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            display: block;
-            width: 250px;
-            margin: 15px auto;
-            position: relative;
-            animation: piperGlow 1.5s infinite alternate;
-        }
-        .piper-btn::after {
-            content: '❤';
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 18px;
-        }
-        .piper-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 5px 20px rgba(255, 20, 147, 0.9);
-        }
-        @keyframes piperGlow {
-            0% { box-shadow: 0px 0px 15px pink; }
-            100% { box-shadow: 0px 0px 25px hotpink; }
         }
     </style>
 </head>
@@ -129,10 +103,9 @@
         <p>Click below to explore:</p>
         <a href="members.html" class="btn">Meet the Members</a>
         <a href="goals.html" class="btn">Our Goals</a>
-        <a href="giveaway.html" class="btn giveaway-btn">Nitro Giveaway</a>
+        <a class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <a href="prepiper.html" class="piper-btn">Piper's Corner</a>
     </div>
-    <p class="updates-message">THE GIVEAWAY IS BACK ON!</p>
+    <p class="updates-message">THE SCOOBYDOO TEAM MEMBERS LOVE YOU ALL!</p>
 </body>
 </html>
