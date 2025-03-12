@@ -9,7 +9,8 @@
         
         body {
             font-family: 'Luckiest Guy', cursive;
-            background: linear-gradient(135deg, #1E90FF, #32CD32);
+            background: url('members.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #FFD700;
             text-align: center;
             margin: 0;
@@ -27,7 +28,6 @@
         
         .container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
             padding: 50px;
@@ -36,91 +36,37 @@
         }
         
         .member {
-            background: #FFD700;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            position: relative;
-            border: 4px solid #C0392B;
-            width: 250px;
+            width: 200px;
+            transition: transform 0.3s;
         }
+        
+        .member img {
+            width: 100%;
+            border-radius: 10px;
+            border: 4px solid #C0392B;
+        }
+        
         .member:hover {
             transform: scale(1.1);
-            box-shadow: 0px 15px 30px rgba(255, 69, 0, 0.7);
         }
         
-        h2 {
-            font-size: 30px;
-            color: #FF4500;
-            text-shadow: 2px 2px black;
-            margin-top: 40px;
-        }
-        
-        p {
-            font-size: 18px;
-            color: #32CD32;
-        }
-        
-        .tag {
+        .bio {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
             position: absolute;
-            bottom: -30px;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: #FF4500;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            white-space: nowrap;
-            display: none;
+            width: 200px;
+            text-align: center;
         }
         
-        .member.clicked .tag {
+        .member.clicked .bio {
             display: block;
-        }
-        
-        .ethan-frame {
-            border: 5px solid #FF4500;
-            position: relative;
-            background: linear-gradient(135deg, #FF4500, #FFD700);
-            color: white;
-        }
-        
-        .ethan-frame::after {
-            content: 'WEBSITE CREATOR!';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #32CD32;
-            color: white;
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            transform: rotate(-10deg);
-        }
-        
-        .mack-frame {
-            position: relative;
-        }
-        .mack-frame::after {
-            content: 'GIVEAWAY FUNDER!';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: red;
-            color: white;
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            transform: rotate(-10deg);
         }
         
         .btn {
@@ -147,26 +93,35 @@
 <body>
     <header>Meet the Scooby-Doo Team!</header>
     <div class="container">
-        <div class="member ethan-frame" onclick="toggleTag(this)">
-            <h2>Velma (Ethan)</h2>
-            <p>The brains of the operation! Always two steps ahead in solving mysteries.</p>
-            <span class="tag">@unbotheredethan.</span>
+        <div class="member" onclick="toggleBio(this)">
+            <img src="velma.jpg" alt="Velma">
+            <div class="bio">
+                <strong>Velma (Ethan)</strong>
+                <p>The brains of the operation! Always two steps ahead in solving mysteries.</p>
+                <p>@unbotheredethan</p>
+            </div>
         </div>
-        <div class="member mack-frame" onclick="toggleTag(this)">
-            <h2>Shaggy (Mack)</h2>
-            <p>The chill dude (she's a girl) who always keeps things groovy!</p>
-            <span class="tag">@.mack</span>
+        <div class="member" onclick="toggleBio(this)">
+            <img src="shaggy.png" alt="Shaggy">
+            <div class="bio">
+                <strong>Shaggy (Mack)</strong>
+                <p>The chill dude (she's a girl) who always keeps things groovy!</p>
+                <p>@.mack</p>
+            </div>
         </div>
-        <div class="member" onclick="toggleTag(this)">
-            <h2>Daphne (Cheesetower5)</h2>
-            <p>Fashionable, fearless, and always ready for adventure!</p>
-            <span class="tag">@cheesetower5</span>
+        <div class="member" onclick="toggleBio(this)">
+            <img src="daphne.png" alt="Daphne">
+            <div class="bio">
+                <strong>Daphne (Cheesetower5)</strong>
+                <p>Fashionable, fearless, and always ready for adventure!</p>
+                <p>@cheesetower5</p>
+            </div>
         </div>
     </div>
     <a href="main.html" class="btn">Back to Main Page</a>
 
     <script>
-        function toggleTag(element) {
+        function toggleBio(element) {
             document.querySelectorAll('.member').forEach(member => {
                 if (member !== element) {
                     member.classList.remove('clicked');
