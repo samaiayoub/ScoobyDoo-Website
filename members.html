@@ -39,7 +39,6 @@
         
         .member {
             cursor: pointer;
-            width: 200px;
             transition: transform 0.3s;
             position: relative;
             display: flex;
@@ -48,13 +47,10 @@
         }
         
         .member img {
-            width: 100%;
+            width: auto;
+            height: 280px;
             border-radius: 10px;
             border: 4px solid #C0392B;
-        }
-        
-        .velma img {
-            height: 250px;
         }
         
         .member:hover {
@@ -103,7 +99,7 @@
 <body>
     <header>Meet the Scooby-Doo Team!</header>
     <div class="container">
-        <div class="member velma" onclick="toggleBio(this)">
+        <div class="member" onclick="toggleBio(this)">
             <img src="velma.png" alt="Velma">
             <div class="bio">
                 <strong>Velma (Ethan)</strong>
