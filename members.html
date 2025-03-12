@@ -29,6 +29,7 @@
         .container {
             display: flex;
             justify-content: center;
+            align-items: flex-end;
             gap: 30px;
             padding: 50px;
             max-width: 900px;
@@ -41,6 +42,9 @@
             width: 200px;
             transition: transform 0.3s;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .member img {
@@ -60,7 +64,7 @@
             padding: 15px;
             border-radius: 10px;
             position: absolute;
-            top: -120px;
+            bottom: 110%;
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
