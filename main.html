@@ -19,12 +19,12 @@
             transition: background 0.5s, color 0.5s;
         }
         header {
-            background-color: #FF4500;
+            background-color: #D43F00;
             padding: 20px;
             font-size: 48px;
             font-weight: bold;
             text-shadow: 3px 3px black;
-            border-bottom: 5px solid #C0392B;
+            border-bottom: 5px solid #A93226;
         }
         .container {
             margin-top: 50px;
@@ -32,9 +32,29 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(255, 165, 0, 0.4);
+            box-shadow: 0px 8px 20px rgba(255, 140, 0, 0.5);
+        }
+        .announcements {
+            margin-top: 30px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(0, 0, 0, 0.7);
+            border: 5px solid #FFD700;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.7);
+        }
+        .announcements h2 {
+            font-size: 32px;
+            text-shadow: 3px 3px black;
+        }
+        .announcements p {
+            font-size: 20px;
+            color: white;
+            font-style: italic;
         }
         p {
             font-size: 22px;
@@ -47,7 +67,7 @@
             font-size: 24px;
             font-weight: bold;
             color: white;
-            background: #FF4500;
+            background: #D43F00;
             border: none;
             border-radius: 12px;
             cursor: pointer;
@@ -58,7 +78,7 @@
         }
         .btn:hover {
             transform: scale(1.1);
-            box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.7);
+            box-shadow: 0px 5px 15px rgba(212, 63, 0, 0.7);
         }
         .giveaway-btn {
             background: grey;
@@ -101,12 +121,16 @@
 <body>
     <header>Welcome to the Scooby-Doo Gang Official Site!</header>
     <div class="container">
-        <p>Join us as we unmask the future of this server! Our party is all about **teamwork, fun, and solving mysteries**—just like Scooby and the gang. 🕵️‍♂️🚐</p>
+        <p>Join us as we unmask the future of this server! Our party is all about <b>teamwork, fun, and solving mysteries</b>—just like Scooby and the gang. 🕵️‍♂️🚐</p>
         <p>Click below to explore:</p>
         <a href="members.html" class="btn">Meet the Members</a>
         <a href="goals.html" class="btn">Our Goals</a>
         <a class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
+    </div>
+    <div class="announcements">
+        <h2>Announcements</h2>
+        <p>(Nothing here yet... Stay tuned!)</p>
     </div>
     <p class="updates-message">THE SCOOBYDOO TEAM MEMBERS LOVE YOU ALL!</p>
 </body>
