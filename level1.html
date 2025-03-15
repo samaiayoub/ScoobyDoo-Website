@@ -58,6 +58,12 @@
             font-size: 18px;
             color: red;
         }
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +74,7 @@
     <input type="text" id="codeInput" placeholder="Enter Code" maxlength="4">
     <button onclick="checkCode()">Submit</button>
     <p id="message"></p>
+    <p id="countdown"></p>
     <p style="margin-top: 30px; font-style: italic; font-size: 18px;">Good luck, even though luck is not a necessity.</p>
 
     <script>
@@ -99,6 +106,26 @@
                 document.getElementById('submitMessage').innerText = "Your name has been recorded.";
             }
         }
+
+        function updateCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            var eventTime = new Date('March 16, 2025 05:00:00 GMT+1').getTime();
+            var interval = setInterval(function() {
+                var now = new Date().getTime();
+                var timeLeft = eventTime - now;
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    countdownElement.innerText = "Code submission is now closed.";
+                    document.getElementById('codeInput').disabled = true;
+                } else {
+                    var hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+                    var minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+                    var seconds = Math.floor((timeLeft / 1000) % 60);
+                    countdownElement.innerText = `Time remaining: ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        }
+        updateCountdown();
     </script>
 </body>
 </html>
