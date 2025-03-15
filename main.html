@@ -52,7 +52,7 @@
             text-shadow: 3px 3px black;
         }
         .countdown {
-            font-size: 36px;
+            font-size: 42px; /* Made it bigger */
             font-weight: bold;
             color: #FF4500;
             text-shadow: 3px 3px black;
@@ -62,14 +62,13 @@
             font-size: 22px;
             line-height: 1.6;
         }
-        .btn {
+        .btn, .mystery-btn {
             display: block;
             margin: 15px auto;
             padding: 15px 30px;
             font-size: 24px;
             font-weight: bold;
             color: white;
-            background: #D43F00;
             border: none;
             border-radius: 12px;
             cursor: pointer;
@@ -77,6 +76,9 @@
             text-decoration: none;
             width: 250px;
             position: relative;
+        }
+        .btn {
+            background: #D43F00;
         }
         .btn:hover {
             transform: scale(1.1);
@@ -101,16 +103,6 @@
             padding: 2px 5px;
             border-radius: 5px;
         }
-        .giveaway-btn:active {
-            animation: shake 0.5s;
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
         .updates-message {
             font-size: 32px;
             font-family: 'Press Start 2P', cursive;
@@ -119,26 +111,22 @@
             margin-top: 30px;
         }
         .mystery-btn {
-            display: block;
-            margin: 15px auto;
-            padding: 15px 30px;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
             background: black;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            width: 250px;
-            text-align: center;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            text-align: center;
         }
         .mystery-btn:hover {
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
         }
         .mystery-btn:active {
             animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
@@ -151,7 +139,7 @@
         <a href="goals.html" class="btn">Our Goals</a>
         <a class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <button class="mystery-btn">???</button> <!-- Moved here -->
+        <button class="mystery-btn" onclick="shakeButton()">???</button> <!-- Updated -->
     </div>
     
     <div class="announcements">
@@ -184,6 +172,12 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call to display immediately
+
+        function shakeButton() {
+            const button = document.querySelector('.mystery-btn');
+            button.style.animation = "shake 0.5s";
+            setTimeout(() => button.style.animation = "", 500);
+        }
     </script>
 </body>
 </html>
