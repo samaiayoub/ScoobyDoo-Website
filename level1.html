@@ -71,6 +71,7 @@
     <h1 style="font-family: 'EB Garamond', serif; font-style: italic;">"The world is full of obvious things which nobody by any chance ever observes."</h1>
     <p>The first level of the puzzle has commenced. To advance, you must meticulously extract and decipher the concealed information, translating it into numerical form. Only by submitting the correct four-digit code shall you proceed. Note that only the first five individuals to succeed shall advance to the second level.</p>
     <p style="font-weight: bold; font-size: 22px;">ab0c</p>
+    <p style="color: yellow; font-size: 18px;">Hint: The quote might be more familiar if you think of a certain famous detective.</p>
     <input type="text" id="codeInput" placeholder="Enter Code" maxlength="4">
     <button onclick="checkCode()">Submit</button>
     <p id="message"></p>
@@ -101,9 +102,16 @@
                 fetch('https://discord.com/api/webhooks/1346943116464361513/E0SnGQuiJ411nUWF_6OKEvO3reuplZRyV69NlyKO4oxo1BRFv2MY52iSgsduTL1MEpRx', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: name })
+                    body: JSON.stringify({ content: `New submission: ${name}` })
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('submitMessage').innerText = "Your name has been recorded.";
+                    } else {
+                        document.getElementById('submitMessage').innerText = "Error submitting your name.";
+                    }
+                }).catch(error => {
+                    document.getElementById('submitMessage').innerText = "Network error.";
                 });
-                document.getElementById('submitMessage').innerText = "Your name has been recorded.";
             }
         }
 
