@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
         
         body {
             font-family: 'Luckiest Guy', cursive;
@@ -52,20 +52,23 @@
             font-size: 32px;
             text-shadow: 3px 3px black;
         }
-        .countdown {
-            font-size: 40px;
-            font-family: 'Orbitron', sans-serif;
-            color: #FF4500;
-            text-shadow: 4px 4px black;
-            margin-top: 20px;
+        .announcements p {
+            font-size: 20px;
+            color: white;
+            font-style: italic;
         }
-        .btn, .mystery-btn {
+        p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        .btn {
             display: block;
             margin: 15px auto;
             padding: 15px 30px;
             font-size: 24px;
             font-weight: bold;
             color: white;
+            background: #D43F00;
             border: none;
             border-radius: 12px;
             cursor: pointer;
@@ -74,12 +77,33 @@
             width: 250px;
             position: relative;
         }
-        .btn:hover, .mystery-btn:hover {
+        .btn:hover {
             transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(212, 63, 0, 0.7);
+        }
+        .giveaway-btn {
+            background: grey;
+            color: white;
+            text-shadow: 2px 2px black;
+            cursor: not-allowed;
+            position: relative;
+            box-shadow: none;
+        }
+        .giveaway-btn::after {
+            content: 'ended:(';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 14px;
+            background: black;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 5px;
         }
         .mystery-btn {
             background: black;
-            text-shadow: 2px 2px black;
+            color: white;
+            text-shadow: 2px 2px red;
         }
         .mystery-btn:active {
             animation: shake 0.5s;
@@ -98,7 +122,31 @@
             text-shadow: 4px 4px black;
             margin-top: 30px;
         }
+        #countdown {
+            font-size: 28px;
+            font-family: 'Roboto Mono', monospace;
+            color: #FFD700;
+            text-shadow: 3px 3px black;
+        }
     </style>
+    <script>
+        function updateCountdown() {
+            const eventTime = new Date("2025-03-16T00:00:00+01:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventTime - now;
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerHTML = "The event has started!";
+                return;
+            }
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+        window.onload = updateCountdown;
+    </script>
 </head>
 <body>
     <header>Welcome to the Scooby-Doo Gang Official Site!</header>
@@ -109,41 +157,13 @@
         <a href="goals.html" class="btn">Our Goals</a>
         <a class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
-        <button class="mystery-btn" onclick="shakeButton()">???</button>
+        <button class="btn mystery-btn">???</button>
     </div>
     <div class="announcements">
         <h2>Announcements:</h2>
-        <p><b>The event starts in...</b></p>
-        <div id="countdown" class="countdown"></div>
+        <p>The event starts in...</p>
+        <p id="countdown"></p>
     </div>
     <p class="updates-message">THE SCOOBYDOO TEAM MEMBERS LOVE YOU ALL!</p>
-
-    <script>
-        function updateCountdown() {
-            const eventDate = new Date("March 16, 2025 00:00:00 GMT+1").getTime();
-            const now = new Date().getTime();
-            const timeLeft = eventDate - now;
-
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            } else {
-                document.getElementById("countdown").innerHTML = "The event has started!";
-            }
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        function shakeButton() {
-            const button = document.querySelector(".mystery-btn");
-            button.style.animation = "shake 0.5s";
-            setTimeout(() => { button.style.animation = ""; }, 500);
-        }
-    </script>
 </body>
 </html>
