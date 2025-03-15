@@ -56,6 +56,13 @@
             color: white;
             font-style: italic;
         }
+        .countdown {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF4500;
+            text-shadow: 2px 2px black;
+            margin-top: 10px;
+        }
         p {
             font-size: 22px;
             line-height: 1.6;
@@ -116,6 +123,22 @@
             text-shadow: 4px 4px black;
             margin-top: 30px;
         }
+        .mystery-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: black;
+            border: none;
+            border-radius: 12px;
+            cursor: not-allowed;
+            text-decoration: none;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -128,10 +151,38 @@
         <a class="btn giveaway-btn">Nitro Giveaway</a>
         <a href="feedback.html" class="btn">Give Your Opinion</a>
     </div>
+    
     <div class="announcements">
         <h2>Announcements:</h2>
-        <p>(Nothing here yet... Stay tuned!)</p>
+        <p><b>The event will start in...</b></p>
+        <p class="countdown" id="countdown">Loading...</p>
+        <button class="mystery-btn">???</button>
     </div>
+
     <p class="updates-message">THE SCOOBYDOO TEAM MEMBERS LOVE YOU ALL!</p>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("March 17, 2025 00:00:00 GMT+1").getTime(); // Paris Time (UTC+1)
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerHTML = "The event has begun!";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to display immediately
+    </script>
 </body>
 </html>
