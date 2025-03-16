@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Challenge</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #111111;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffffff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function showPuzzle() {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("puzzle").style.display = "block";
+        }
+        function returnToIntro() {
+            document.getElementById("puzzle").style.display = "none";
+            document.getElementById("intro").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="container" id="intro">
+        <h1>Level II: A.A.A</h1>
+        <p>This puzzle will unveil a hidden website, deployed through Vercel. Only those who decipher its meaning will progress. Once you successfully navigate to the designated site, you are deemed qualified to advance.</p>
+        <p>Unlike the previous challenge, this level operates under distinct rules. The clues provided must be carefully analyzed and deciphered. The answer is concealed within structured text—each element holds a purpose. Observe the details, extract meaning, and forge your path forward.</p>
+        <p>Decoding what follows is your task. Seek the hidden structure and unveil the truth.</p>
+        <p><strong>Note:</strong> Everything is clear and obvious, do not DM me about anything.</p>
+        <button class="button" onclick="showPuzzle()">Next</button>
+    </div>
+    
+    <div class="container" id="puzzle" style="display: none;">
+        <h1>Paragraph I: Sequential</h1>
+        <p>Timid rabbits always nibble silently, leaping around trees. Eager tigers observe birds and squirrels eagerly. Clever owls dive elegantly. A nervous deer anxiously notices danger. A nocturnal dove always navigates dark alleys. Curious cats explore silently. Tiny hedgehogs enjoy winter evenings blissfully.</p>
+        
+        <h1>Paragraph II: Ascend</h1>
+        <p>young xenophiles navigates junctions. zealots zonders, 5strategizing keypoints. yearning wanderers 5eek knowledge. yet Approaching xeric borders will produce cryptic messages. 9bscured hints yield 2truth. go xplore.</p>
+        
+        <button class="button" onclick="returnToIntro()">Return</button>
+    </div>
+</body>
+</html>
