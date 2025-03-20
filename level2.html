@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Challenge</title>
+    <title>Puzzle Challenge - NPSOM</title>
     <style>
         body {
             font-family: "Georgia", serif;
@@ -44,6 +44,17 @@
             text-transform: uppercase;
             border-radius: 5px;
         }
+        .hidden-dot {
+            position: relative;
+            width: 1px;
+            height: 1px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 1px;
+            opacity: 0.02;
+        }
     </style>
     <script>
         function showPuzzle() {
@@ -54,28 +65,39 @@
             document.getElementById("puzzle").style.display = "none";
             document.getElementById("intro").style.display = "block";
         }
+        function playAudio() {
+            let audio = document.getElementById("hiddenAudio");
+            audio.currentTime = 16;
+            audio.play();
+            setTimeout(() => { audio.pause(); }, 16000); // Stop after 16 seconds
+        }
     </script>
 </head>
 <body>
     <div class="container" id="intro">
-        <h1>Level II: A.A.A</h1>
-        <p>This puzzle will unveil a hidden website, deployed through Vercel. Only those who decipher its meaning will progress. Once you successfully navigate to the designated site, you are deemed qualified to advance.</p>
-        <p>Unlike the previous challenge, this level operates under distinct rules. The clues provided must be carefully analyzed and deciphered. The answer is concealed within structured text—each element holds a purpose. Observe the details, extract meaning, and forge your path forward.</p>
-        <p>Decoding what follows is your task. Seek the hidden structure and unveil the truth.</p>
-        <p><strong>Note:</strong> Everything is clear and obvious, do not DM me about anything.</p>
+        <h1>Level 1 - NPSOM</h1>
+        <p>This puzzle requires you to listen carefully and decode the hidden meaning.</p>
         <button class="button" onclick="showPuzzle()">Next</button>
     </div>
     
     <div class="container" id="puzzle" style="display: none;">
-        <h1>Paragraph I: Sequential</h1>
-        <p>Timid rabbits always nibble silently, leaping around trees. Eager tigers observe birds and squirrels eagerly. Clever owls dive elegantly. A nervous deer anxiously notices danger. A nocturnal dove always navigates dark alleys. Curious cats explore silently. Tiny hedgehogs enjoy winter evenings blissfully.</p>
-        
-        <h1>Paragraph II: Ascend</h1>
-        <p>Young Xylophones Need joyful Zeppelins. Wandering 5cholars know Yellow Winds.
-Knowledgeable Yearn Xenon. Bright wise courageous masters 9avigators heroic.
-Yearnings 2raveling great..</p>
-        
+        <h1>Paragraph: Unsequential</h1>
+        <p>Somewhere, yellow nights take hold, even as silent icicles zigzag effortlessly. Beneath the evening rain, tiny owls tremble outside. Meanwhile, old rivers shift endlessly, carrying heavy echoes, lingering past ancient shores. Travelers observe narrow doorways, imagining countless experiences. Another moment passes, stars illuminate endless dreams.<span class="hidden-dot">.</span><span class="hidden-dot" onclick="playAudio()">.</span></p>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <ul>
+                <li>Extract the message from the paragraph.</li>
+                <li>Find a way to play the sound.</li>
+                <li>Translate the sound using the code given.</li>
+                <li>In this sound, 1 refers to a dot and 11 refers to a dash (Morse code).</li>
+                <li>When finishing the translation to dots and dashes, follow the provided pattern 2 1 4 1 4 1 3 2 3 and translate to letters.</li>
+                <li>Navigate the final product using a Vercel URL.</li>
+            </ul>
+            <p><strong>Good luck, everyone. Good luck, Piper.</strong></p>
+        </div>
         <button class="button" onclick="returnToIntro()">Return</button>
     </div>
+    
+    <audio id="hiddenAudio" src="NPSOM.mp3"></audio>
 </body>
 </html>
