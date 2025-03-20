@@ -66,10 +66,10 @@
             document.getElementById("intro").style.display = "block";
         }
         function playAudio() {
-            let audio = document.getElementById("hiddenAudio");
-            audio.currentTime = 16;
-            audio.play();
-            setTimeout(() => { audio.pause(); }, 16000); // Stop after 16 seconds
+    let audio = document.getElementById("hiddenAudio");
+    audio.currentTime = 0; // Start from the beginning
+    audio.play();
+    setTimeout(() => { audio.pause(); }, 16000); // Stop after 16 seconds
         }
     </script>
 </head>
